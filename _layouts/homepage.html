@@ -1,0 +1,31 @@
+---
+layout: homepage
+---
+
+  <div>
+    {% for post in paginator.posts %}
+
+      <article>
+        <a class="link" href="{{ post.url | prepend: site.baseurl }}">
+          <span class="note-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </a>
+        <div class="post-content" itemprop="articleBody">
+          {{ post.content }}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Next</a>
+  {% else %}
+    <span class="previous"></span>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Previous</a>
+  {% else %}
+    <span class="next "></span>
+  {% endif %}
+</div>

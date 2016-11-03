@@ -1,0 +1,332 @@
+ @mixin sanserif {
+    font-family: "news-gothic-std",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+ }
+
+ @mixin serif {
+    font-family: Georgia, serif;
+ }
+
+ @mixin display {
+    font-family: "acta-display",sans-serif;
+    font-style: normal;
+    font-weight: 700;
+ }
+
+ $blue: #678EA2;
+ $black: #000;
+
+ $small: 600px;
+ $medium: 1000px;
+
+ body {
+    font-size: 18px;
+    @include serif;
+ }
+
+ main {
+    min-height: 50vh;
+ }
+
+ h1 {
+    font-weight: 800;
+ }
+
+ p a {
+    color: black;
+    text-decoration: underline;
+    &:visited {
+        color: black;
+    }
+    &:hover {
+        background-color: rgba($black, .15);
+    }
+}
+
+p {
+    font-family: serif;
+    font-size: 1.1em;
+    @media (min-width: 600px) {
+        font-size: 1.2em;
+    }
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 34em;
+    margin: 0;
+    padding: 0 20px;
+    @media (min-width: $small) {
+        padding: 0 2em;
+    }
+    @media (min-width: $medium) {
+        max-width: 45em;
+    }
+}
+
+ // Header
+
+.site-header {
+    @include sanserif;
+    // Positioning context for the mobile navigation icon
+    position: relative;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid black;
+    /* box-shadow: 0px 3px 22px rgba(0, 0, 0, 0.3); */
+    .container {
+        border-bottom: 1px solid black;
+    }
+    a, a:visited {
+        color: black;
+    }
+    @media (min-width: $small) {
+        padding: 1em 2em;
+    }
+}
+
+.heading {
+    font-size: 2.35em;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    @include display;
+    &:visited {
+        color: #000;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    @media (min-width: $small) {
+        margin-top: 0;
+        font-size: 3.5em;
+    }
+    @media (min-width: $medium) {
+        font-size: 5.5em;
+    }
+}
+
+
+.site-title {
+    font-size: 6em;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000;
+    @include display;
+    &:visited {
+        color: #000;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    @media (min-width: $small) {
+        margin-top: 0;
+    }
+}
+
+.aboutLink {
+    float: right;
+    font-size: 1.5em;
+    transform: rotate(90deg);
+    margin: .5em;
+    &:hover {
+        text-decoration: none;
+        color: $blue !important;
+    }
+    @media (min-width: $small) {
+        font-size: 2em;
+    }
+    @media (min-width: $medium) {
+        margin: 1.25em;
+    }
+}
+
+.bfus-link {
+    font-size: 16px;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    @media (min-width: 600px) {
+        display: inline-block;
+        float: right;
+        margin-top: 2.25em;
+        margin-right: 25px;
+    }
+}
+
+// Body
+
+article {
+    padding: 1em 0 3em;
+    margin: 1em 0 2em;
+    border-bottom: 1px solid black;
+    &:last-child {
+        border: none;
+    }
+    .note-date {
+        font-size: .85em;
+        margin-bottom: 1em;
+        display: inline-block;
+        @include sanserif;
+        &:hover {
+            color: $blue;
+        }
+    }
+    a {
+        color: $black;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:visited {
+            color: $black;
+        }
+    }
+    blockquote {
+        margin: 1.5em 0;
+    }
+    @media (min-width: $medium) {
+        font-size: 1.2em;
+    }
+}
+
+.pagination {
+    padding: 1em 0 4em;
+    overflow: hidden;
+    @include sanserif;
+    a {
+        color: $black;
+        font-size: 1.5em;
+        &:hover {
+            color: $blue;
+            text-decoration: none;
+        }
+    }
+    .previous {
+        float: right;
+    }
+    .next {
+        float: left;
+        transform: rotate(180deg);
+    }
+    @media (min-width: $small) {
+        padding: 1.5em 0 6em;
+    }
+    @media (min-width: $medium) {
+        a {
+            font-size: 2em;
+        }
+    }
+}
+
+footer {
+    border-top: 1px solid $black;
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    section {
+        padding: 1em 0;
+        border-bottom: 1px solid $black;
+        &:last-child {
+            border: none;
+        }
+        .heading {
+            &:hover {
+                color: $blue;
+                span {
+                    color: $black;
+                }
+            }
+            span {
+                font-size: 1.25rem;
+                top: -.25em;
+                position: relative;
+                @media (min-width: $small) {
+                    font-size: 1.875rem;
+                    top: -.35em;
+                }
+                @media (min-width: $medium) {
+                    font-size: 2.5rem;
+                    top: -.45em;
+                }
+            }
+        }
+    }
+    #about {
+        padding: 2em 0;
+        .myname {
+            margin-bottom: .25em;
+            @include display;
+            font-size: 1.25em;
+        }
+        p {
+            font-size: 1rem;
+            padding-left: 4.5rem;
+            max-width: 35em;
+        }
+    }
+    .sociallinks {
+        padding-left: 4.5rem;
+        margin: 1.5em 0 0;
+        a {
+            margin-right: 1.25em;
+            &:hover {
+                text-decoration: none;
+                svg {
+                    path, g {
+                        color: $blue;
+                    }
+                }
+            }
+            svg {
+                height: 1em;
+                path {
+                    fill: $black;
+                }
+            }
+        }
+        @media (min-width: $small) {
+            padding-left: 6.6rem;
+        }
+    }
+}
+
+
+.myphoto {
+    background-image: url(/assets/portrait_by-Williams.png);
+    height: 3em;
+    width: 3em;
+    margin-bottom: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+    margin: 0 1em 1em 0;
+    @media (min-width: $small) {
+        height: 5em;
+        width: 5em;
+    }
+}
+
+
+// Photos 
+
+#photos {
+    > .container {
+        max-width: 100%;
+    }
+    .pagination {
+        max-width: 45em;
+    }
+    article {
+        img {
+            max-height: 90vh;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+/**
+ * Personal styles
+ */
+
+
+$blue: #678EA2;
+
+
+body {
+	font-family: georgia, serif;
+}
+
+main {
+	background: white;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+p {
+	font-family: serif;
+	font-size: 1.2em;
+	@media (max-width: 400px) {
+		font-size: 1em;
+	}
+}
+
+div {
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	max-width: 34em;
+	margin: 0 auto;
+}
+
+article {
+	padding: 1em;
+	margin: 1em 0 2em;
+	&:last-child {
+		border: none;
+	}
+	.note-date {
+		font-size: .7em;
+		margin-bottom: 1em;
+		display: inline-block;
+		color: $blue;
+		@include sansserif;
+	}
+	a {
+		color: $blue;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	blockquote {
+		margin: 1.5em 0;
+	}
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+	&:visited {
+		color: $blue;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+// Header
